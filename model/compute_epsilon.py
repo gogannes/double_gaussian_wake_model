@@ -12,11 +12,11 @@ from scipy.optimize import minimize
 from model.fcn_MNC import fnc_M, fnc_N, fnc_Cm
 
 
-def residual_of_mass_flow_deficits(epsilon, d0, Ct, r0):
+def residual_of_mass_flow_deficits(epsilon: float, d0: float, Ct: float, r0: float) -> float:
     """
     Computes the residual between the mass flow deficits from gaussian wake and Frandsen wake.
 
-    :param epsilon: wake expansion at x0 [m]
+    :param epsilon: wake expansion at x0 [D]
     :param d0: rotor diameter [m]
     :param Ct: thrust coefficient [-]
     :param r0: span-wise location of the Gaussian extrema [m]
@@ -30,18 +30,18 @@ def residual_of_mass_flow_deficits(epsilon, d0, Ct, r0):
     mDot_dg = np.pi * M * Cm  # ignoring air density
     beta = (1 / 2) * ((1 + np.sqrt(1 - Ct)) / (np.sqrt(1 - Ct)))
     mDot_frandsen = (np.pi / 8) * (d0 ** 2) * beta * (1 - np.sqrt(1 - ((2 / beta) * Ct)))  # ignoring air density
+    residual = (mDot_dg - mDot_frandsen) ** 2  # ignoring air density
+    return residual
 
-    return (mDot_dg - mDot_frandsen) ** 2
 
-
-def compute_epsilon(d0, Ct, r0):
+def compute_epsilon(d0: float, Ct: float, r0: float) -> float:
     """
     Computes epsilon as function of diameter, thrust coefficent and spanwise location of the Gaussian extrema.
 
     :param d0: rotor diameter [m]
     :param Ct: thrust coefficient [-]
     :param r0: span-wise location of the Gaussian extrema [m]
-    :return epsilon: wake expansion at x0 [m]
+    :return epsilon: wake expansion at x0 [D]
     """
 
     with warnings.catch_warnings():

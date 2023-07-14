@@ -8,7 +8,7 @@ import numpy as np
 from scipy import special
 
 
-def fnc_M(sig, r0):
+def fnc_M(sig: float, r0: float) -> float:
     """
     Computes 'M' according to Eqn. 7a
 
@@ -20,7 +20,7 @@ def fnc_M(sig, r0):
         np.sqrt(2 * np.pi) * r0 * sig * special.erf(r0 / (sig * np.sqrt(2)))
 
 
-def fnc_N(sig, r0):
+def fnc_N(sig: float, r0: float) -> float:
     """
     Computes 'N' according to Eqn. 7b
 
@@ -32,17 +32,15 @@ def fnc_N(sig, r0):
         (1 / 2) * np.sqrt(np.pi) * r0 * sig * special.erf(r0 / sig)
 
 
-def fnc_Cm(M, N, Ct, d0):
+def fnc_Cm(M: float, N: float, Ct: float, d0: float) -> float:
     """
-    Computes 'Cm' according to Eqn. 8 (only C-minus, Cm, is computed)
+    Computes amplitude 'Cm' according to Eqn. 8 (only C-minus, Cm, is computed)
 
     :param M: M [m^2]
     :param N: N [m^2]
     :param Ct: thrust coefficient [-]
     :param d0: rotor diameter [m]
-    :return Cm [-]
+    :return Cm: amplitude [-]
     """
     below_sqrt = (M ** 2.0) - 0.5 * N * Ct * (d0 ** 2)
     return (M - np.sqrt(below_sqrt)) / (2.0 * N)
-
-
