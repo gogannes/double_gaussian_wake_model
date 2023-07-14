@@ -44,17 +44,20 @@ def compute_epsilon(d0: float, Ct: float, r0: float) -> float:
     :return epsilon: wake expansion at x0 [D]
     """
 
-    with warnings.catch_warnings():
-        warnings.simplefilter("ignore", RuntimeWarning)
+    if Ct != 0.0:
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", RuntimeWarning)
+            res = minimize(lambda epsilon: residual_of_mass_flow_deficits(epsilon, d0, Ct, r0),
+                           x0=d0 / 2,
+                           method='nelder-mead', options={'xatol': 1e-8, 'disp': False},
+                           bounds=[(1E-5, 10 * d0)])
 
-        res = minimize(lambda epsilon: residual_of_mass_flow_deficits(epsilon, d0, Ct, r0),
-                       x0=d0 / 2,
-                       method='nelder-mead', options={'xatol': 1e-8, 'disp': False},
-                       bounds=[(1E-5, 10 * d0)])
-
-        epsilon = res.x[0]
-        if not res.success:
-            warnings.warn(f"Epsilon could not be found for d0={d0}, Ct={Ct}, r0={r0})")
-            epsilon = np.NaN
+            epsilon = res.x[0]
+            if not res.success:
+                warnings.warn(f"Epsilon could not be found for d0={d0}, Ct={Ct}, r0={r0})")
+                epsilon = np.NaN
+    else:
+        warnings.warn(f"Epsilon cannot be computed for Ct=0.")
+        epsilon = np.NaN
 
     return epsilon

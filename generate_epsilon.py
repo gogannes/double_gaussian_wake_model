@@ -6,6 +6,8 @@
 
 import pickle
 
+import matplotlib.cm as cm
+import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import RegularGridInterpolator
 
@@ -16,9 +18,6 @@ d0 = 1.0
 
 Cts = np.arange(0.01, 1, 0.01)
 krs = np.arange(0.0, 1.01, 0.01)
-
-Cts = np.arange(0.0, 1, 0.1)
-krs = np.arange(0.0, 1.01, 0.1)
 
 epsilon = np.zeros(shape=(len(Cts), len(krs))) * np.NaN
 for i, Ct in enumerate(Cts):
@@ -32,3 +31,13 @@ fcn_epsilon = RegularGridInterpolator((Cts, krs), epsilon)
 
 with open('resources/fcn_epsilon.pickle', 'wb') as f:
     pickle.dump(fcn_epsilon, f)
+
+fig = plt.figure(figsize=(6, 5))
+ax = fig.add_subplot(111, projection='3d')
+r0_grid, Ct_grid = np.meshgrid(krs / 2 / d0, Cts)
+ax.plot_surface(r0_grid, Ct_grid, epsilon, cmap=cm.jet)
+ax.set_xlabel('r0 [D]')
+ax.set_ylabel('Ct [-]')
+ax.set_zlabel('epsilon [D]')
+ax.view_init(30, -135)
+plt.show()
