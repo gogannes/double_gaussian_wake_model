@@ -8,8 +8,8 @@ import warnings
 
 import numpy as np
 
-from model.compute_epsilon import compute_epsilon
-from model.fcn_MNC import fnc_M, fnc_N, fnc_Cm
+from double_gaussian_wake_model.compute_epsilon import compute_epsilon
+from double_gaussian_wake_model.equations import fnc_M, fnc_N, fnc_Cm
 
 
 def double_gaussian_deficit(x: np.ndarray, y: np.ndarray, z: np.ndarray,

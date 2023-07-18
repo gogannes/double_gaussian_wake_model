@@ -10,7 +10,7 @@ import pickle
 import matplotlib.pyplot as plt
 import numpy as np
 
-from model.double_gaussian import double_gaussian_deficit
+from double_gaussian_wake_model.wake_model import double_gaussian_deficit
 
 
 def get_points_for_line_plot(d0, downstream_D=6, resolution=0.01, limit_D=1.5):

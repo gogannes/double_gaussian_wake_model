@@ -6,7 +6,7 @@
 
 import numpy as np
 
-from model.compute_epsilon import compute_epsilon
+from double_gaussian_wake_model.compute_epsilon import compute_epsilon
 
 
 def test_solution_independent_of_diameter():

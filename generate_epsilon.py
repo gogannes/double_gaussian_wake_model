@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.interpolate import RegularGridInterpolator
 
-from model.compute_epsilon import compute_epsilon
+from double_gaussian_wake_model.compute_epsilon import compute_epsilon
 
 # epsilon does not depend on diameter, but it needs to be
 d0 = 1.0

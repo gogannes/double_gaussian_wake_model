@@ -9,7 +9,7 @@ import warnings
 import numpy as np
 from scipy.optimize import minimize
 
-from model.fcn_MNC import fnc_M, fnc_N, fnc_Cm
+from double_gaussian_wake_model.equations import fnc_M, fnc_N, fnc_Cm
 
 
 def residual_of_mass_flow_deficits(epsilon: float, d0: float, Ct: float, r0: float) -> float:

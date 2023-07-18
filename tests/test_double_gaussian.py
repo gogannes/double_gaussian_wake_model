@@ -8,7 +8,7 @@ import pickle
 
 import numpy as np
 
-from model.double_gaussian import double_gaussian_deficit
+from double_gaussian_wake_model.wake_model import double_gaussian_deficit
 
 
 def test_simple_with_recomputing_epsilon():
