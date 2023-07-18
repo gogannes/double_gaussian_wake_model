@@ -1,4 +1,4 @@
-# DoubleGaussianWake
+# Double Gaussian Wake Model
 
 ## Project
 This project is the implementation of the Double Gaussian Wake model for wind turbines published in the article:
@@ -13,14 +13,23 @@ numerical simulations and experimental measurements.
 The method is based on the conservation of momentum principle, while stream-tube theory is used to determine the wake
 expansion at the tube outlet.
 
-The model parameters used in this repository have been identified for a scaled wind turbine model (TUM-G1) and may
-depend on wind turbine characteristics.
+The model parameters used in this repository have been identified for a scaled wind turbine model (TUM-G1). For 
+different wind turbines, it is recommended to re-identify parameters, as they depend on turbine characteristics.
 
-## How to install
+## How to install the wake model
+This repository can be installed by downloading the source code (not via the PyPI package manager).
 
+Download the source code:
+```
+git clone https://github.com/gogannes/double_gaussian_wake_model
+```
+And install the requirements:
+```
+pip install -r requirements.txt
+ ```
 
-## How to run 
-
+## How to use the wake model
+See `demo.py`. 
 
 ## License
 This source code is licensed under the BSD-style license found in the
