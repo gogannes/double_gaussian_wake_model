@@ -36,7 +36,7 @@ def residual_of_mass_flow_deficits(epsilon: float, d0: float, Ct: float, r0: flo
 
 def compute_epsilon(d0: float, Ct: float, r0: float) -> float:
     """
-    Computes epsilon as function of diameter, thrust coefficent and spanwise location of the Gaussian extrema.
+    Computes epsilon as function of diameter, thrust coefficient and span-wise location of the Gaussian extrema.
 
     :param d0: rotor diameter [m]
     :param Ct: thrust coefficient [-]

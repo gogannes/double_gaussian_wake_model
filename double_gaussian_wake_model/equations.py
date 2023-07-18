@@ -13,7 +13,7 @@ def fnc_M(sig: float, r0: float) -> float:
     Computes 'M' according to Eqn. 7a
 
     :param sig: sigma [m]
-    :param r0: spanwise location of the Gaussian extrema [m]
+    :param r0: span-wise location of the Gaussian extrema [m]
     :return M: M [m^2]
     """
     return 2 * (sig ** 2) * np.exp((-(r0 ** 2)) / (2 * (sig ** 2))) + \
@@ -25,7 +25,7 @@ def fnc_N(sig: float, r0: float) -> float:
     Computes 'N' according to Eqn. 7b
 
     :param sig: sigma [m]
-    :param r0: spanwise location of the Gaussian extrema [m]
+    :param r0: span-wise location of the Gaussian extrema [m]
     :return: N [m^2]
     """
     return (sig ** 2) * np.exp((-(r0 ** 2)) / ((sig ** 2))) + \
