@@ -23,11 +23,11 @@ def test_solution_independent_of_diameter():
     d0 = 1.1  # [m]
     r0_D = kr / 2  # [D]
     r0 = r0_D * d0  # [m]
-    epsilon_1 = compute_epsilon(d0, Ct, r0)
+    epsilon_1 = compute_epsilon(d0, Ct, r0) # [D]
 
     d0 = 119  # [m]
     r0_D = kr / 2  # [D]
     r0 = r0_D * d0  # [m]
-    epsilon_2 = compute_epsilon(d0, Ct, r0)
+    epsilon_2 = compute_epsilon(d0, Ct, r0) # [D]
 
     assert np.abs((epsilon_1 - epsilon_2) / epsilon_1) < 0.001
