@@ -9,7 +9,7 @@ REQUIRED = [
 
 setup(
     name='double_gaussian_wake_model',
-    version='0.1.0',
+    version='2.1',
     py_modules=['double_gaussian_wake_model'],
     url='https://github.com/gogannes/double_gaussian_wake_model',
     license='BSD-2-Clause',
