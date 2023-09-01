@@ -28,6 +28,8 @@ And install the requirements:
 pip install -r requirements.txt
  ```
 
+Note that it is recommended using a virtual environment and Python 3.10.
+
 ## How to use the wake model
 See `demo.py`. 
 
